@@ -186,6 +186,8 @@ header a:hover{
     ), url("imagenes/work.jpg"); 
 }
 
+/* ------------------------- 4ta pestaña ------------------------------------------- */
+
 #caracteristicas .container{
     text-align: center;
     padding: 200px 12px;
@@ -196,7 +198,7 @@ header a:hover{
     font-weight: bold;
 }
 
-/* ------------------------- 4ra pestaña ------------------------------------------- */
+/* ------------------------- 5ta pestaña ------------------------------------------- */
 
 #final{
     display: flex;
@@ -322,11 +324,89 @@ footer .container{
         margin-bottom: 30px;
     }
 
+    #nuestros-programas h2{
+        font-size: 4em;         /* para hacer el texto mas grande */
+    }
+
     #nuestros-programas h3{
         margin-top: 0;
     }
 
     #nuestros-programas .carta{
         padding: 15px;
+        background-size: 100% 110px;         /* para recortar la imagen de fondo */
+        background-repeat: no-repeat;
+        background-position-y: 0%;
+        background-color: rgb(50, 50, 50, 0.5);  /* darle un color al fondo que no abarca la foto */
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     }
+
+
+    .carta:first-child{
+        background-image: linear-gradient(
+            0deg,
+            rgba(0,0,0,0.5),
+            rgba(0,0,0,0.5)
+        ), url("imagenes/codigo-crop.jpg"); 
+    }
+    
+    .carta:nth-child(2){
+        background-image: linear-gradient(
+            0deg,
+            rgba(0,0,0,0.5),
+            rgba(0,0,0,0.5)
+        ), url("imagenes/front-crop.jpg"); 
+    }
+    
+    .carta:nth-child(3){
+        background-image: linear-gradient(
+            0deg,
+            rgba(0,0,0,0.5),
+            rgba(0,0,0,0.5)
+        ), url("imagenes/work-crop.jpg"); 
+    }
+
+    /* ------------------------- 4ta pestaña ------------------------------------------- */
+
+    #caracteristicas{
+        background-image: url("imagenes/3pantallas.jpg");
+        background-repeat: no-repeat;
+        background-size: 500px 400px;
+        background-position: calc(100vw - 500px) 120px;   /* calc = calcular vw (total del ancho) - 700px */
+    }
+
+    #caracteristicas .container{
+        text-align: initial;
+    }
+
+    #caracteristicas ul{
+        margin-left: 100px;
+    }
+
+    @media (min-width: 1200px){  /* acomodar la imagen dependiendo de la resolucion de pantalla */
+        #caracteristicas{
+            background-position-x: calc(100vw - 800px) ;
+        }
+    }
+
+    /* ------------------------- 5ta pestaña ------------------------------------------- */
+
+    #final h2{
+        font-size: 5em;
+
+    }
+
+    #final button{
+        font-size: 1.5em;
+    }
+
+    /* ------------------------- Pie de pagina ------------------------------------------- */
+
+    footer .container{
+        justify-content: flex-end;
+    }
+
+
 }
+
+
