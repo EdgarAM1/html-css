@@ -1,3 +1,7 @@
+/* ----------------------------------------------------------------------------------- */
+/* ---------------------- Para dispositivos mobiles ---------------------------------- */
+/* ----------------------------------------------------------------------------------- */
+
 /* los elementos no crescan mas alla de lo proprcionado inicialmente */
 *{
     box-sizing: border-box;
@@ -109,13 +113,11 @@ header a:hover{
     flex-direction: column;
     height: 90vh;  /* vh --> utilizaria el 90% de la pantalla */
     color: white;
-    background-image: url("imagenes/hero.jpg");
-    /* background-image: linear-gradient(
+    background-image: linear-gradient(
         0deg,
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5), 
-    )
-    ,url("imagenes/hero.jpg"); */
+        rgba(0,0,0,0.5), /* poner 1er filtro negro transparente */
+        rgba(0,0,0,0.5)  /* poner 2do filtro negro transparente */
+    ), url("imagenes/hero.jpg"); 
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -148,7 +150,8 @@ header a:hover{
 }
 
 #nuestros-programas p{
-    display: none;
+    display: none;     /* no mostrar el parrafo */
+
 }
 
 #nuestros-programas .carta{
@@ -160,15 +163,27 @@ header a:hover{
 }
 
 .carta:first-child{
-    background-image: url("imagenes/codigo.jpg");
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ), url("imagenes/codigo.jpg"); 
 }
 
 .carta:nth-child(2){
-    background-image: url("imagenes/front.jpg");
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ), url("imagenes/front.jpg"); 
 }
 
 .carta:nth-child(3){
-    background-image: url("imagenes/work.jpg");
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ), url("imagenes/work.jpg"); 
 }
 
 #caracteristicas .container{
@@ -192,31 +207,126 @@ header a:hover{
     flex-direction: column;
     height: 90vh;  /* vh --> utilizaria el 90% de la pantalla */
     color: white;
-    background-image: url("imagenes/front.jpg");
-    /* background-image: linear-gradient(
+    background-image: linear-gradient(
         0deg,
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5), 
-    )
-    ,url("imagenes/hero.jpg"); */
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ), url("imagenes/front.jpg"); 
     background-repeat: no-repeat;
     background-size: cover;
+}
+#final h2 {
+    font-size: 9vw; /* vw = es para que el texto cresca con el tamaño de la pantlla en la q se muestra */
+}
+
+#final button{
+    font-size: 5vw;
 }
 
 /* ------------------------- Pie de pagina ------------------------------------------- */
 
 footer{
     text-align: center;
-    background-color: rgb(135, 135, 135);
+    background-color: rgb(235, 235, 235);
 }
 
 footer p{
     margin: 0;
+    padding: 25px;     /* para que no este tan pegado en la paarte inferior  del bloque*/
+    color: rgb(100, 100, 100);
 }
 
+
 footer .container{
-    height: 150px;
+    height: 110px;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: flex-end;     /* colocar items en la parte inferior del bloque */
+
+}
+
+/* ----------------------------------------------------------------------------------- */
+/* ------------------------- Para escritorio ----------------------------------------- */
+/* ----------------------------------------------------------------------------------- */
+
+@media (min-width:720px){ /* cuando la pantalla supere los 720px se aplicara lo contenido adentro */
+
+    /* ------------------------- Menú ------------------------------------------- */
+
+    header{
+        
+        position: fixed; /* poner el menu fijado mientras se desplasa */
+        width: 100%;         /* que abarque toda la pantalla */
+    }
+
+    header .container{
+        flex-direction: row;         /* acomodar texto */
+        justify-content: space-between;
+    }
+
+    header nav{
+        flex-direction: row;         /* acomodar texto */
+        padding-bottom: 0;
+        padding-right: 25px; /* dar aire del lado derecho */
+    }
+
+
+
+    /* ------------------------- 2da pestaña ------------------------------------------- */
+
+    #hero h1{
+        font-size: 5em;
+    }
+    
+    #somos-proya .container{
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    #somos-proya .texto{
+        width: 50%;         /* contenedor ocupa la mitad de pantalla */
+        max-width: 600px;
+        text-align: initial;     /* poner recargado a la izquierda */
+        padding-left: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* contenido al centro del bloque*/
+    }
+
+    #somos-proya h2{
+        margin-top: 0px;
+    }
+
+    #somos-proya .img-container {
+        background-image: linear-gradient(
+            0deg,
+            rgba(0,0,0,0.5), 
+            rgba(0,0,0,0.5)
+        ), url("imagenes/codigo.jpg");  
+        background-size: cover;
+        background-position: center center;
+        height: 500px;
+        width: 500px;
+    }
+
+
+/* ------------------------- 3ra pestaña ------------------------------------------- */
+
+    #nuestros-programas .programas{
+        display: flex;
+        justify-content: center;
+    }
+
+    #nuestros-programas p{
+        display: block;
+        margin-bottom: 30px;
+    }
+
+    #nuestros-programas h3{
+        margin-top: 0;
+    }
+
+    #nuestros-programas .carta{
+        padding: 15px;
+    }
 }
